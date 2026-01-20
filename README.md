@@ -14,10 +14,10 @@ The pipeline follows a modern data flow, moving data from raw storage to a consu
 
 
 ### 1. Ingestion (Data Lake)
-* **Amazon S3:** Acts as the centralized Data Lake. Raw HR datasets (CSV format) are uploaded here to a "Raw" bucket. [cite_start]This ensures a single source of truth for all downstream analytics[cite: 5244].
+* **Amazon S3:** Acts as the centralized Data Lake. Raw HR datasets (CSV format) are uploaded here to a "Raw" bucket. This ensures a single source of truth for all downstream analytics[cite: 5244].
 
 ### 2. Processing & Cataloging (ETL)
-* [cite_start]**AWS Glue Crawlers:** Automatically scans the S3 buckets to infer the schema (column names, data types) and populates the **AWS Glue Data Catalog**[cite: 5243].
+* **AWS Glue Crawlers:** Automatically scans the S3 buckets to infer the schema (column names, data types) and populates the **AWS Glue Data Catalog**.
 * **AWS Glue ETL Jobs:** Serverless Apache Spark jobs (written in Python) clean the data, handle null values, and standardize formats before writing the processed data back to a "Curated" S3 bucket.
 
 ### 3. Analytics & Visualization
@@ -32,7 +32,7 @@ The pipeline follows a modern data flow, moving data from raw storage to a consu
 The **Amazon QuickSight** dashboard allows stakeholders to visualize and drill down into attrition metrics:
 * **Attrition Overview:** Tracks the overall attrition rate and total employee count.
 * **Demographic Heatmaps:** Visualizes attrition spikes in specific segments, such as the **25-35 Age Group** or specific **Marital Statuses**.
-* [cite_start]**Income Analysis:** A scatter plot correlating **Monthly Income** vs. **Attrition**, helping identify if salary discrepancies drive turnover[cite: 5268].
+* **Income Analysis:** A scatter plot correlating **Monthly Income** vs. **Attrition**, helping identify if salary discrepancies drive turnover.
 * **Role-Based Risk:** Bar charts identifying "High Risk" job roles (e.g., Sales Representatives often show higher attrition than Research Directors).
 
 ## 🛠 Tech Stack
@@ -48,7 +48,7 @@ The analysis is based on 35+ attributes for each employee, including:
 * **Personal:** Age, Gender, Marital Status, Education Field.
 * **Employment:** Department, Job Role, Job Level, OverTime status.
 * **Compensation:** Monthly Income, Percent Salary Hike, Stock Option Level.
-* [cite_start]**Satisfaction:** Job Satisfaction, Environment Satisfaction, Work-Life Balance[cite: 5269].
+* **Satisfaction:** Job Satisfaction, Environment Satisfaction, Work-Life Balance.
 
 ## 🚀 Key Features
 * **Serverless Architecture:** The pipeline is fully managed (S3, Glue, Athena), meaning no servers to provision or patch.
